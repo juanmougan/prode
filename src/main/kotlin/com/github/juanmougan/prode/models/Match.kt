@@ -1,10 +1,12 @@
 package com.github.juanmougan.prode.models
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
-data class Match(@Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long, val homeTeam: Team, val awayTeam: Team, val result: Result,
+data class Match(@Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long,
+                 @ManyToOne
+                 val homeTeam: Team,
+                 @ManyToOne
+                 val awayTeam: Team,
+                 val result: Result,
                  val round: Round)
