@@ -9,7 +9,7 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api")
-class PeopleController(val peopleRepository: PeopleRepository) {
+class PeopleController(private val peopleRepository: PeopleRepository) {
 
     @GetMapping("/people")
     fun getAll() : List<Person> = peopleRepository.findAll()

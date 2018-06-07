@@ -8,7 +8,7 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api")
-class MatchesController(val matchesRepository: MatchesRepository) {
+class MatchesController(private val matchesRepository: MatchesRepository) {
 
     @GetMapping("/matches")
     fun getAll() : List<Match> = matchesRepository.findAll()
