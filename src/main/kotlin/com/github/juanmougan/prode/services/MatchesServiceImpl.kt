@@ -16,6 +16,13 @@ class MatchesServiceImpl(
     //      Set points won for this Bet (need to add the attribute)
     // fun processBetsForMatch(match: Match)
     override fun processBetsForMatch(match: Match) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val unfulfilledBets = betsRepository.findAllByMatchWhereBetHasNotBeenPlayed(match)
+        unfulfilledBets.forEach { b ->
+            b.played = true
+            b.counted = true
+            if (match.result.equals(b.result)) {
+                b.pointsWon = 1
+            }
+        }
     }
 }

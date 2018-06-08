@@ -8,5 +8,5 @@ import org.springframework.data.repository.query.Param
 
 interface BetsRepository : JpaRepository<Bet, Long> {
     @Query("SELECT b.* FROM bet b where b.match = :match and b.played = false")
-    fun findAllByMatchWhereBetHasNotBeenPlayed(@Param("match") match: Match): List<Long>
+    fun findAllByMatchWhereBetHasNotBeenPlayed(@Param("match") match: Match): List<Bet>
 }

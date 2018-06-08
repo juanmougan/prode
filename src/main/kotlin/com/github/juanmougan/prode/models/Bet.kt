@@ -9,5 +9,6 @@ data class Bet(@Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long,
                val result: Result,
                @ManyToOne
                val player: Person,
-               val played: Boolean,
-               val counted: Boolean)
+               var played: Boolean,
+               var counted: Boolean,
+               var pointsWon: Int = 0)
