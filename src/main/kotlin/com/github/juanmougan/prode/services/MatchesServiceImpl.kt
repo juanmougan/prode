@@ -1,10 +1,13 @@
 package com.github.juanmougan.prode.services
 
 import com.github.juanmougan.prode.models.Match
+import com.github.juanmougan.prode.repositories.BetsRepository
 import org.springframework.stereotype.Service;
 
 @Service("messageService")
-class MatchesServiceImpl : MatchesService {
+class MatchesServiceImpl(
+                        val betsRepository: BetsRepository
+                        ) : MatchesService {
     // Fetch Bets unfulfilled (played = false) for this Match
     // for each Bet
     //  Mark as match played true
