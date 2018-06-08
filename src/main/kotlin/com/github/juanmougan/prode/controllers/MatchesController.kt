@@ -2,6 +2,7 @@ package com.github.juanmougan.prode.controllers
 
 import com.github.juanmougan.prode.models.Match
 import com.github.juanmougan.prode.repositories.MatchesRepository
+import com.github.juanmougan.prode.services.MatchesService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid

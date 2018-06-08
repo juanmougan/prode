@@ -1,9 +1,10 @@
 package com.github.juanmougan.prode.services
 
+import com.github.juanmougan.prode.models.Match
 import org.springframework.stereotype.Service;
 
 @Service("messageService")
-class MatchesServiceImpl {
+class MatchesServiceImpl : MatchesService {
     // Fetch Bets unfulfilled (played = false) for this Match
     // for each Bet
     //  Mark as match played true
@@ -11,4 +12,7 @@ class MatchesServiceImpl {
     //  If are points won
     //      Set points won for this Bet (need to add the attribute)
     // fun processBetsForMatch(match: Match)
+    override fun processBetsForMatch(match: Match) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
