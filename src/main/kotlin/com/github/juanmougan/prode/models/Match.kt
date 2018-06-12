@@ -3,10 +3,10 @@ package com.github.juanmougan.prode.models
 import javax.persistence.*
 
 @Entity
-data class Match(@Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long,
+data class Match(@Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long = 0,
                  @ManyToOne
-                 val homeTeam: Team,
+                 var homeTeam: Team? = null,
                  @ManyToOne
-                 val awayTeam: Team,
-                 val result: Result,
-                 val round: Round)
+                 var awayTeam: Team? = null,
+                 var result: Result? = null,
+                 var round: Round? = null)

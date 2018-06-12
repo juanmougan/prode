@@ -31,3 +31,16 @@ will return
 
 ### Creating more test data
 
+- Adding some teams
+
+    `curl -X POST 'localhost:8080/api/teams' -d '{"name":"Argentina"}' -H "Content-Type: application/json" | jq .`
+    
+    `curl -X POST 'localhost:8080/api/teams' -d '{"name":"Islandia"}' -H "Content-Type: application/json" | jq .`
+    
+    `curl -X POST 'localhost:8080/api/teams' -d '{"name":"Nigeria"}' -H "Content-Type: application/json" | jq .`
+    
+    `curl -X POST 'localhost:8080/api/teams' -d '{"name":"Croacia"}' -H "Content-Type: application/json" | jq .`
+
+- Adding some test Matches
+
+    `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":3, "awayTeam":4, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`

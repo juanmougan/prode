@@ -20,7 +20,7 @@ class MatchesServiceImpl(
         unfulfilledBets.forEach { b ->
             b.played = true
             b.counted = true
-            if (match.result.equals(b.result)) {
+            if (match.result?.equals(b.result)!!) {
                 b.pointsWon = 1
             }
         }
