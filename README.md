@@ -2,11 +2,11 @@
 
 - To list all the people
 
-    `curl -X POST 'localhost:8080/api/people' -d '{"name":"Juan Manuel"}' -H "Content-Type: application/json" | jq .`
+    `curl 'localhost:8080/api/people' | jq .`
 
 - To create a new Person
 
-    `curl 'localhost:8080/api/people' | jq .`
+    `curl -X POST 'localhost:8080/api/people' -d '{"name":"Juan Manuel"}' -H "Content-Type: application/json" | jq .`
 
 will return
 
@@ -28,3 +28,6 @@ will return
 - Finally, to delete it
 
     `curl -X DELETE 'localhost:8080/api/people/1' | jq .`
+
+### Creating more test data
+
