@@ -21,8 +21,8 @@ class BetsController(private val betsRepository: BetsRepository,
 
     @PostMapping("/bets")
     fun create(@Valid @RequestBody bet: Bet): Bet {
-        val match: Match? = matchesRepository.getOne(bet.match.id)
-        val player: Person? = peopleRepository.getOne(bet.player.id)
+        val match: Match = matchesRepository.getOne(bet.match.id)
+        val player: Person = peopleRepository.getOne(bet.player.id)
         bet.match = match
         bet.player = player
         return betsRepository.save(bet)
