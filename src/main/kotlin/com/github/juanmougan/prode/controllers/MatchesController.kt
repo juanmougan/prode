@@ -31,6 +31,7 @@ class MatchesController(private val matchesRepository: MatchesRepository,
         return matchesRepository.findById(matchId).map { existingMatch ->
             val updatedMatch: Match = existingMatch
                     .copy(result = newMatch.result)
+            matchesService.processBetsForMatch(updatedMatch)
             ResponseEntity.ok().body(matchesRepository.save(updatedMatch))
         }.orElse(ResponseEntity.notFound().build())
     }
