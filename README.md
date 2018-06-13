@@ -43,4 +43,8 @@ will return
 
 - Adding some test Matches
 
-    `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":3, "awayTeam":4, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
+    `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":{"id":3,"name":"Argentina"}, "awayTeam":{"id":4,"name":"Islandia"}, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
+    
+    `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":{"id":6,"name":"Croacia"}, "awayTeam":{"id":5,"name":"Nigeria"}, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
+    
+    `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":{"id":3,"name":"Argentina"}, "awayTeam":{"id":6,"name":"Croacia"}, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
