@@ -1,6 +1,5 @@
 package com.github.juanmougan.prode.controllers
 
-import com.github.juanmougan.prode.models.Person
 import com.github.juanmougan.prode.models.Team
 import com.github.juanmougan.prode.repositories.TeamsRepository
 import org.springframework.http.ResponseEntity

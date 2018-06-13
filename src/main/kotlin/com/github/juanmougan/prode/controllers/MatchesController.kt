@@ -2,13 +2,15 @@ package com.github.juanmougan.prode.controllers
 
 import com.github.juanmougan.prode.models.Match
 import com.github.juanmougan.prode.repositories.MatchesRepository
+import com.github.juanmougan.prode.services.MatchesService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api")
-class MatchesController(private val matchesRepository: MatchesRepository) {
+class MatchesController(private val matchesRepository: MatchesRepository, 
+                        private val matchesService: MatchesService) {
 
     @GetMapping("/matches")
     fun getAll() : List<Match> = matchesRepository.findAll()
@@ -29,6 +31,7 @@ class MatchesController(private val matchesRepository: MatchesRepository) {
         return matchesRepository.findById(matchId).map { existingMatch ->
             val updatedMatch: Match = existingMatch
                     .copy(result = newMatch.result)
+            matchesService.processBetsForMatch(updatedMatch)
             ResponseEntity.ok().body(matchesRepository.save(updatedMatch))
         }.orElse(ResponseEntity.notFound().build())
     }
