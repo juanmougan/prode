@@ -1,3 +1,11 @@
+## Prode
+
+### How to Run (with Docker)
+
+1. Build the image `docker build --no-cache -t prode .`
+
+2. Run `docker run -it --rm -p 8080:8080 prode`
+
 ### Some examples
 
 - To list all the people
