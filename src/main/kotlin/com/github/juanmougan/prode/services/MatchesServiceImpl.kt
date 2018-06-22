@@ -5,7 +5,7 @@ import com.github.juanmougan.prode.models.Match
 import com.github.juanmougan.prode.repositories.BetsRepository
 import org.springframework.stereotype.Service
 
-@Service("messageService")
+@Service
 class MatchesServiceImpl(
                         val betsRepository: BetsRepository
                         ) : MatchesService {
