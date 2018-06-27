@@ -14,7 +14,7 @@ public class Bet {
     private Person player;
     private Boolean played;
     private Boolean counted;
-    private Integer pointsWon;
+    private Integer pointsWon = 0;
 
     public Bet() {
     }
