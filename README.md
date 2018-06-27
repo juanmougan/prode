@@ -56,3 +56,7 @@ will return
     `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":{"id":6,"name":"Croacia"}, "awayTeam":{"id":5,"name":"Nigeria"}, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
     
     `curl -X POST 'localhost:8080/api/matches' -d '{"homeTeam":{"id":3,"name":"Argentina"}, "awayTeam":{"id":6,"name":"Croacia"}, "round": "FIRST_ROUND"}' -H "Content-Type: application/json" | jq .`
+
+- Editing a Match once you know its result
+
+    `curl -X PUT 'localhost:8080/api/matches/7' -d '{"result": "TIED"}' -H "Content-Type: application/json" | jq .`
