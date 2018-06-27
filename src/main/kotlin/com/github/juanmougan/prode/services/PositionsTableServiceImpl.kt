@@ -15,8 +15,6 @@ class PositionsTableServiceImpl(private val betsRepository: BetsRepository,
         val allBets: List<Bet> = betsRepository.findAll()
         // 2. Count the points won by each player
         val betsByPlayer: Map<Person, List<Bet>> = allBets.groupBy { it.player }
-        // TODO sum all points for each player
-        //betsByPlayer.mapKeys { it.key }
         val positions: MutableList<Position> = mutableListOf()
         betsByPlayer.mapKeys { playerBet ->
             val player = playerBet.key
@@ -24,8 +22,6 @@ class PositionsTableServiceImpl(private val betsRepository: BetsRepository,
             val position = Position(player, points ?: 0)
             positions.add(position)
         }
-
-        //val betsMap = allBets.associateBy( { it.player }, {it.pointsWon} )
         // 3. Return a list ordered by points desc
         positions.sortBy { it.points }
         return positions
